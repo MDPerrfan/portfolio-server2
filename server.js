@@ -2,12 +2,17 @@ import express from 'express';
 import cors from 'cors';
 import connectDB from './config/db.js';
 import projectRoutes from './routers/projectRoute.js';
+import authRoutes from "./routers/authRoutes.js";
+import aboutRoutes from "./routers/aboutRoutes.js";
+import messageRoutes from "./routers/messageRoutes.js";
 connectDB();
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/api/projects", projectRoutes);
-
+app.use("/api/auth", authRoutes);
+app.use("/api/about", aboutRoutes);
+app.use("/api/messages", messageRoutes);
 app.get('/', (req, res) => {
     res.json({ message: 'Welcome to the Portfolio API' });
 });
