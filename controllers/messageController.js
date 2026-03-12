@@ -32,7 +32,7 @@ export const getMessages = async(req, res) => {
 export const markAsRead = async(req, res) => {
     try {
         const message = await Message.findByIdAndUpdate(
-            req.params.id, { read: true }, { new: true }
+            req.params.id, { read: true }, { returnDocument: "after" }
         );
         if (!message) return res.status(404).json({ success: false, message: "Message not found" });
         res.json({ success: true, message });

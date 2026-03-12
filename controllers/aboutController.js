@@ -17,7 +17,7 @@ export const updateAbout = async(req, res) => {
     try {
         const { name, title, description, email, phone, location, github, linkedin } = req.body;
 
-        const about = await About.findOneAndUpdate({}, { name, title, description, email, phone, location, github, linkedin }, { new: true, upsert: true });
+        const about = await About.findOneAndUpdate({}, { name, title, description, email, phone, location, github, linkedin }, { returnDocument: "after", upsert: true });
 
         res.json({ success: true, about });
     } catch (error) {

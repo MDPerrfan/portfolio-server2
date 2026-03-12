@@ -7,7 +7,11 @@ import aboutRoutes from "./routers/aboutRoutes.js";
 import messageRoutes from "./routers/messageRoutes.js";
 connectDB();
 const app = express();
-app.use(cors());
+const allowedOrigins = ["http://localhost:3000", "https://portfolio-server2-five.vercel.app/"];
+app.use(cors({
+    origin: allowedOrigins,
+    credentials: true,
+}));
 app.use(express.json());
 app.use("/api/projects", projectRoutes);
 app.use("/api/auth", authRoutes);
