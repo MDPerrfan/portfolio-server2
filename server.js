@@ -7,7 +7,7 @@ import aboutRoutes from "./routers/aboutRoutes.js";
 import messageRoutes from "./routers/messageRoutes.js";
 connectDB();
 const app = express();
-const allowedOrigins = ["http://localhost:3000", "https://portfolio-server2-five.vercel.app/"];
+const allowedOrigins = ["http://localhost:3000", "https://welcomeboss.vercel.app"];
 app.use(cors({
     origin: allowedOrigins,
     credentials: true,
